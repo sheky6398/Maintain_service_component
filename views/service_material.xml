@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="service_material_view_form">
+        <field name="name">service.material.view.form</field>
+        <field name="model">product.product</field>
+        <field name="inherit_id" ref="product.product_normal_form_view"/>
+        <field name="arch" type="xml">
+           <notebook position='inside'>
+                <page string="Components" attrs="{'invisible':[('type','!=','service')]}">
+                    <field name="product_ids" widget="One2many" >
+                        <tree editable="bottom">
+                            <field name="product_id" required="1"/>
+                            <field name="quantity" required="1"/>
+                        </tree>     
+                    </field>   
+                </page>
+            </notebook> 
+        </field>
+    </record>
+</odoo>
